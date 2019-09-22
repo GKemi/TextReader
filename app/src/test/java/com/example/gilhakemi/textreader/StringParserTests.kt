@@ -28,7 +28,7 @@ class StringParserTests {
 
     @Test
     fun parserExtractsWordsWithPunctuation() {
-        givenIHaveAnExpectedString("hello World. I am not a robot!")
+        givenIHaveAnExpectedString("hello World. I am's not a robot!")
 
         whenARequestIsMadeToParseTheString()
 
