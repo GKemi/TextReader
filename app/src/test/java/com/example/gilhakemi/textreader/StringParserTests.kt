@@ -35,6 +35,15 @@ class StringParserTests {
         thenTheCorrectNumberOfWordsIsReturned(7)
     }
 
+    @Test
+    fun parserExtractsWordsWithContractions() {
+        givenIHaveAnExpectedString("Hello Gil's world. I am not a robot!")
+
+        whenARequestIsMadeToParseTheString()
+
+        thenTheCorrectNumberOfWordsIsReturned(8)
+    }
+
     private fun givenIHaveAnExpectedString(expectedString: String) {
         phrase = expectedString
     }
