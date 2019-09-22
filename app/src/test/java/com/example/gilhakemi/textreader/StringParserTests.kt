@@ -1,6 +1,5 @@
 package com.example.gilhakemi.textreader
 
-import org.junit.Assert
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -19,14 +18,32 @@ class StringParserTests {
     }
 
     @Test
-    fun parserCanExtractOneWord() {
-        //given I have an expected string
-        phrase = "hello"
+    fun parserCanExtractWords() {
+        givenIHaveAnExpectedString("hello world")
 
-        //when I provide it to the parse
+        whenARequestIsMadeToParseTheString()
+
+        thenTheCorrectNumberOfWordsIsReturned(2)
+    }
+
+    @Test
+    fun parserExtractsWordsWithPunctuation() {
+        givenIHaveAnExpectedString("hello World. I am not a robot!")
+
+        whenARequestIsMadeToParseTheString()
+
+        thenTheCorrectNumberOfWordsIsReturned(7)
+    }
+
+    private fun givenIHaveAnExpectedString(expectedString: String) {
+        phrase = expectedString
+    }
+
+    private fun whenARequestIsMadeToParseTheString() {
         wordList = stringParser.parse(phrase)
+    }
 
-        //then the parse returns a list with the word
-        assertEquals(wordList.size, 1)
+    private fun thenTheCorrectNumberOfWordsIsReturned(expectedNumberOfWords: Int) {
+        assertEquals(wordList.size, expectedNumberOfWords)
     }
 }
