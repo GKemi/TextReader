@@ -11,6 +11,7 @@ import org.junit.Test
  */
 class TextAdapterTest {
     lateinit var textAdapter: TextPort
+    lateinit var textFile: String
     lateinit var context: Context
 
     @Before
@@ -20,25 +21,35 @@ class TextAdapterTest {
 
     @Test
     fun textFileGetsContentConvertedIntoCorrectString() {
-        //given I have a text adapter
-        textAdapter = TextAdapter(context)
+        givenIHaveATextAdapter()
 
-        //when I opt to open a file
-        val textFile = textAdapter.openFile("testTwo.txt")
+        whenIOptToOpenAFile("testTwo.txt")
 
-        //then I should retrieve the appropriate string value
-        assertEquals("Hello I am Gil", textFile)
+        thenIShouldretrieveTheAppropriateString()
     }
 
     @Test
     fun textFileGetsContentConvertedIntoCorrectString_whenThereAreNewLines() {
-        //given I have a text adapter
+        givenIHaveATextAdapter()
+
+        whenIOptToOpenAFile("test.txt")
+
+        thenIShouldRetrieveTheAppropriateString_withLineBreaks()
+    }
+
+    private fun givenIHaveATextAdapter() {
         textAdapter = TextAdapter(context)
+    }
 
-        //when I opt to open a file
-        val textFile = textAdapter.openFile("test.txt")
+    private fun whenIOptToOpenAFile(fileName: String) {
+        textFile = textAdapter.openFile(fileName)
+    }
 
-        //I should retrieve the appropriate string value
+    private fun thenIShouldretrieveTheAppropriateString() {
+        assertEquals("Hello I am Gil", textFile)
+    }
+
+    private fun thenIShouldRetrieveTheAppropriateString_withLineBreaks() {
         assertEquals("this is a test file\n" +
                 "\n" +
                 "Lets convert this wonderful text into a string. I can't wait!", textFile)
