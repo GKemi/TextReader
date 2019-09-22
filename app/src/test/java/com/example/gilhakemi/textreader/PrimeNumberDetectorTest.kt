@@ -45,4 +45,9 @@ class PrimeNumberDetectorTest {
     fun twentyThreeIsDetectedAsPrime() {
         assertTrue(primeNumberDetector.isPrime(23))
     }
+
+    @Test
+    fun sevenThousandAndOneIsDetectedAsPrime() {
+        assertTrue(primeNumberDetector.isPrime(7001))
+    }
 }
