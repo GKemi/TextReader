@@ -6,7 +6,8 @@ package com.example.gilhakemi.textreader
 class StringParser {
 
     fun parse(phrase: String): List<String> {
-        return mutableListOf()
+        val words = phrase.split(" ")
+        return words
     }
 
 }
