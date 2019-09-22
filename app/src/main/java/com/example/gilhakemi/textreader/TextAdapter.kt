@@ -11,14 +11,12 @@ import java.io.InputStreamReader
  * Created by work on 22/09/2019.
  */
 class TextAdapter(val applicationContext: Context): TextPort {
-    override fun openFile(name: String): InputStream {
-        return applicationContext.assets.open(name)
+    override fun openFile(name: String): String {
+        val fileInputStream = applicationContext.assets.open(name)
+
+        return convertToString(fileInputStream)
     }
 
-    override fun convertToString(file: InputStream): String {
-        val inputAsString = file.bufferedReader().use { it.readText() }
-
-        return inputAsString
-    }
+    private fun convertToString(file: InputStream) = file.bufferedReader().use { it.readText() }
 
 }

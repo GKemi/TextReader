@@ -7,6 +7,5 @@ import java.io.InputStream
  * Created by work on 22/09/2019.
  */
  interface TextPort {
-  fun openFile(name: String): InputStream
-  fun convertToString(file: InputStream): String
+  fun openFile(name: String): String
  }
