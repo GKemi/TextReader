@@ -21,19 +21,30 @@ class WordDeduplicatorTests {
 
     @Test
     fun listOfWordsIsDeduplicated() {
-        //given we have a list of words
+        givenWeHaveAListOfWords()
+
+        whenARequestToTheWordDeduplicatorIsMade()
+
+        thenTheCorrectNumberOfWordsIsInTheList(6)
+    }
+
+    private fun givenWeHaveAListOfWords() {
         listOfInputtedWords.add("hello")
         listOfInputtedWords.add("world")
+        listOfInputtedWords.add("Gil's")
+        listOfInputtedWords.add("gil's")
         listOfInputtedWords.add("I")
         listOfInputtedWords.add("world")
         listOfInputtedWords.add("i")
         listOfInputtedWords.add("am")
         listOfInputtedWords.add("here")
+    }
 
-        //when a request a made to deduplicate them
+    private fun whenARequestToTheWordDeduplicatorIsMade() {
         listOfExpectedWords = wordDeduplicator.deduplicate(listOfInputtedWords)
+    }
 
-        //then a list should be returned with extra occurrences removed
-        assertEquals(5, listOfExpectedWords.size)
+    private fun thenTheCorrectNumberOfWordsIsInTheList(numberOfWords: Int) {
+        assertEquals(numberOfWords, listOfExpectedWords.size)
     }
 }

@@ -9,11 +9,11 @@ class WordDeduplicator {
     fun deduplicate(listOfWords: MutableList<String>): MutableList<String> {
         val newList = mutableListOf<String>()
 
-        for (word in listOfWords) {
-            val wordLowerCased = word.toLowerCase()
-            if (newList.contains(wordLowerCased)) continue
-            newList.add(wordLowerCased)
-        }
+        listOfWords
+                .map { it.toLowerCase() }
+                .filterNot { newList.contains(it) }
+                .forEach { newList.add(it) }
+
         return newList
     }
 
