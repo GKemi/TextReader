@@ -8,4 +8,5 @@ import java.io.InputStream
  */
  interface TextPort {
   fun openFile(name: String): InputStream
+  fun convertToString(file: InputStream): String
  }
