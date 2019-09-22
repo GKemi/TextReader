@@ -1,6 +1,5 @@
 package com.example.gilhakemi.textreader
 
-import android.util.ArrayMap
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -8,16 +7,16 @@ import org.junit.Test
 /**
  * Created by work on 22/09/2019.
  */
-class WordDeduplicatorTests {
+class WordCounterTests {
     lateinit var listOfInputtedWords: MutableList<String>
-    lateinit var mapOfExpectedWords: MutableMap<String, Int>
-    lateinit var wordDeduplicator: WordDeduplicator
+    lateinit var mapOfExpectedWords: MutableList<Word>
+    lateinit var wordCounter: WordCounter
 
     @Before
     fun setup() {
         listOfInputtedWords = mutableListOf()
-        mapOfExpectedWords = mutableMapOf()
-        wordDeduplicator = WordDeduplicator()
+        mapOfExpectedWords = mutableListOf()
+        wordCounter = WordCounter()
     }
 
     @Test
@@ -43,7 +42,7 @@ class WordDeduplicatorTests {
     }
 
     private fun whenARequestIsMadeToRemoveDuplicates() {
-        mapOfExpectedWords = wordDeduplicator.deduplicate(listOfInputtedWords)
+        mapOfExpectedWords = wordCounter.deduplicate(listOfInputtedWords)
     }
 
     private fun thenANewMapShouldBeReturnedWithTheCorrectNumberOfWords(numberOfWords: Int) {
@@ -52,11 +51,11 @@ class WordDeduplicatorTests {
     }
 
     private fun andWordsHaveCorrectNumberOfOccurrences() {
-        assertEquals(1, mapOfExpectedWords["hello"])
-        assertEquals(2, mapOfExpectedWords["world"])
-        assertEquals(2, mapOfExpectedWords["gil's"])
-        assertEquals(2, mapOfExpectedWords["i"])
-        assertEquals(1, mapOfExpectedWords["am"])
-        assertEquals(1, mapOfExpectedWords["here"])
+        assertEquals(1, mapOfExpectedWords[0].occurrences)
+        assertEquals(2, mapOfExpectedWords[1].occurrences)
+        assertEquals(2, mapOfExpectedWords[2].occurrences)
+        assertEquals(2, mapOfExpectedWords[3].occurrences)
+        assertEquals(1, mapOfExpectedWords[4].occurrences)
+        assertEquals(1, mapOfExpectedWords[5].occurrences)
     }
 }
