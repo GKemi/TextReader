@@ -6,15 +6,15 @@ import com.example.gilhakemi.textreader.core.Word
  * Created by work on 22/09/2019.
  */
 class MockMainView: MainView {
-    var presenter = MainPresenter()
+    var presenter = MainPresenter(this)
 
-    var words: MutableList<Word>? = null
+    var words: List<Word>? = null
 
     override fun getWords() {
-        presenter.getWordsFromFile("testTwo.txt")
+        presenter.getWordsFromFile("THE RAILWAY CHILDREN.txt")
     }
 
-    override fun showWords(words: MutableList<Word>?) {
+    override fun showWords(words: List<Word>?) {
         this.words = words
     }
 }

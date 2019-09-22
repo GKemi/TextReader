@@ -7,7 +7,7 @@ import java.util.regex.Pattern
 
 class StringParser {
 
-    fun parse(phrase: String): List<String> {
+    fun parse(phrase: String): MutableList<String> {
         val pattern = Pattern.compile("(?!'.*')\\b[\\w']+\\b")
         val matcher = pattern.matcher(phrase)
         val words = mutableListOf<String>()
