@@ -1,0 +1,3 @@
+this is a test file
+
+Lets convert this wonderful text into a string. I can't wait!

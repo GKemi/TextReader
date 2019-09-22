@@ -1,6 +1,4 @@
-package com.example.gilhakemi.textreader
-
-import android.util.ArrayMap
+package com.example.gilhakemi.textreader.core
 
 /**
  * Created by work on 22/09/2019.

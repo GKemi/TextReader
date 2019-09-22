@@ -1,5 +1,6 @@
 package com.example.gilhakemi.textreader
 
+import com.example.gilhakemi.textreader.core.PrimeNumberDetector
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -37,8 +38,13 @@ class PrimeNumberDetectorTest {
     }
 
     @Test
-    fun FiveOneIsDetectedAsPrime() {
+    fun fiveIsDetectedAsPrime() {
         assertTrue(primeNumberDetector.isPrime(5))
+    }
+
+    @Test
+    fun eightIsNotDetectedAsPrime() {
+        assertFalse(primeNumberDetector.isPrime(8))
     }
 
     @Test

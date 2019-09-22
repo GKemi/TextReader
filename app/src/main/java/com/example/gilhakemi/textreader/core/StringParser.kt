@@ -1,4 +1,4 @@
-package com.example.gilhakemi.textreader
+package com.example.gilhakemi.textreader.core
 
 /**
  * Created by work on 22/09/2019.

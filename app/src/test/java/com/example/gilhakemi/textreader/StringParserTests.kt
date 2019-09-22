@@ -1,5 +1,6 @@
 package com.example.gilhakemi.textreader
 
+import com.example.gilhakemi.textreader.core.StringParser
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test

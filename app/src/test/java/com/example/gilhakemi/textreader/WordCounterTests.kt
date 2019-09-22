@@ -1,5 +1,7 @@
 package com.example.gilhakemi.textreader
 
+import com.example.gilhakemi.textreader.core.Word
+import com.example.gilhakemi.textreader.core.WordCounter
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
