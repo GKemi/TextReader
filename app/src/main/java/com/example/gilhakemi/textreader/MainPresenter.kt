@@ -1,26 +1,25 @@
 package com.example.gilhakemi.textreader
 
-import com.example.gilhakemi.textreader.core.CoreCoordinator
-import com.example.gilhakemi.textreader.core.MainApplication
+import com.example.gilhakemi.textreader.core.Interactor
 import com.example.gilhakemi.textreader.core.Word
 
 /**
  * Created by work on 22/09/2019.
  */
 class MainPresenter(var view: MainView?) {
-    var core: CoreCoordinator? = null
+    var interactor: Interactor? = null
 
     init {
         getCore()
     }
 
     fun getCore() {
-        core = MainApplication.getCore()
-        core?.attachPresenter(this)
+        interactor = MainApplication.getInteractor()
+        interactor?.attachPresenter(this)
     }
 
     fun getWordsFromFile(fileName: String) {
-        core?.getWordsFromFile(fileName)
+        interactor?.getWordsFromFile(fileName)
     }
 
     fun showWords(listOfWords: List<Word>) {
@@ -28,8 +27,8 @@ class MainPresenter(var view: MainView?) {
     }
 
     fun onDestroy() {
-        core?.detachPresenter()
-        core = null
+        interactor?.detachPresenter()
+        interactor = null
         view = null
     }
 }

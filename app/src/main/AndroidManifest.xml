@@ -3,7 +3,7 @@
     package="com.example.gilhakemi.textreader">
 
     <application
-        android:name="com.example.gilhakemi.textreader.core.MainApplication"
+        android:name="com.example.gilhakemi.textreader.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
