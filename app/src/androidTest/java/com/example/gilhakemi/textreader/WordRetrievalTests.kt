@@ -16,27 +16,47 @@ import android.support.test.runner.AndroidJUnitRunner
 class WordRetrievalTests {
     lateinit var view: MockMainView
 
+    @Before
+    fun setup() {
+        view = MockMainView()
+    }
+
     @Test
     fun viewRetrievesAListOfWords_whenARequestForOpeningATextFileIsMade() {
         //given there is a view
-        view = MockMainView()
 
-        //when the view requests for a text file
-        view.getWords()
+        whenTheViewRequestsForAListOfWords()
 
-        //then a list of words should be returned
-        assertNotNull(view.words)
+        thenAListOfWordsShouldBeReturned()
     }
 
     @Test
     fun viewRetrievesAListOfWords_withAssociatedOccurrences() {
         //given there is a view
-        view = MockMainView()
 
-        //when the view requests for a text file
+        whenTheViewRequestsForAListOfWords()
+
+        thenAListOfWordsShouldBeReturnedWithAssociatedOccurrences()
+    }
+
+    @Test
+    fun viewRetrievesAListOfWords_withValueIndicatingOccurrencesIsPrime() {
+        //given there is a view
+
+        whenTheViewRequestsForAListOfWords()
+
+        thenAListOfWordsShouldBeReturned_withAssociatedOccurrencesPrimeValue()
+    }
+
+    private fun whenTheViewRequestsForAListOfWords() {
         view.getWords()
+    }
 
-        //then a list of words should be returned with occurrences
+    private fun thenAListOfWordsShouldBeReturned() {
+        assertNotNull(view.words)
+    }
+
+    private fun thenAListOfWordsShouldBeReturnedWithAssociatedOccurrences() {
         assertEquals("the", view.words!![0].word)
         assertEquals(3366, view.words!![0].occurrences)
         assertEquals("railway", view.words!![1].word)
@@ -45,15 +65,7 @@ class WordRetrievalTests {
         assertEquals(157, view.words!![2].occurrences)
     }
 
-    @Test
-    fun viewRetrievesAListOfWords_withValueIndicatingOccurrencesIsPrime() {
-        //given there is a view
-        view = MockMainView()
-
-        //when the view requests for a text file
-        view.getWords()
-
-        //then a list of words should be returned with prime statement
+    private fun thenAListOfWordsShouldBeReturned_withAssociatedOccurrencesPrimeValue() {
         assertEquals("the", view.words!![0].word)
         assertFalse(view.words!![0].occurrencesPrime)
         assertEquals("railway", view.words!![1].word)
