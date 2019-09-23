@@ -13,7 +13,7 @@ class MainPresenter(var view: MainView?) {
         getCore()
     }
 
-    fun getCore() {
+    private fun getCore() {
         interactor = MainApplication.getInteractor()
         interactor?.attachPresenter(this)
     }
