@@ -45,6 +45,21 @@ class WordRetrievalTests {
         assertEquals(157, view.words!![2].occurrences)
     }
 
+    @Test
+    fun viewRetrievesAListOfWords_withValueIndicatingOccurrencesIsPrime() {
+        //given there is a view
+        view = MockMainView()
 
+        //when the view requests for a text file
+        view.getWords()
+
+        //then a list of words should be returned with prime statement
+        assertEquals("the", view.words!![0].word)
+        assertFalse(view.words!![0].occurrencesPrime)
+        assertEquals("railway", view.words!![1].word)
+        assertFalse(view.words!![1].occurrencesPrime)
+        assertEquals("children", view.words!![2].word)
+        assertTrue(view.words!![2].occurrencesPrime)
+    }
 }
 

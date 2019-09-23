@@ -5,4 +5,5 @@ package com.example.gilhakemi.textreader.core
  */
 data class Word(var word: String) {
     var occurrences: Int = 1
+    var occurrencesPrime = false
 }
